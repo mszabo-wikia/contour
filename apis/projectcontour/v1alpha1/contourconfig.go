@@ -289,6 +289,10 @@ type EnvoyListenerConfig struct {
 	// See: https://github.com/projectcontour/contour/issues/3221
 	DisableAllowChunkedLength bool `json:"disableAllowChunkedLength"`
 
+	// MergeSlashes toggles Envoy's non-standard merge_slashes path transformation option
+	// which strips duplicate slashes from request URL paths.
+	MergeSlashes bool `json:"mergeSlashes"`
+
 	// ConnectionBalancer. If the value is exact, the listener will use the exact connection balancer
 	// See https://www.envoyproxy.io/docs/envoy/latest/api-v2/api/v2/listener.proto#envoy-api-msg-listener-connectionbalanceconfig
 	// for more information.

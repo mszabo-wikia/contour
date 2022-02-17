@@ -72,6 +72,7 @@ json-fields:
 - upstream_service_time
 - user_agent
 - x_forwarded_for
+mergeSlashes: true
 leaderelection:
   lease-duration: 15s
   renew-deadline: 10s
@@ -462,6 +463,7 @@ func TestConfigFileDefaultOverrideImport(t *testing.T) {
 incluster: false
 disablePermitInsecure: false
 disableAllowChunkedLength: false
+mergeSlashes: true
 leaderelection:
   configmap-name: leader-elect
   configmap-namespace: projectcontour

@@ -252,6 +252,11 @@ spec:
                           revert back to Envoy''s default behavior in case of failures.
                           Please file an issue if failures are encountered. See: https://github.com/projectcontour/contour/issues/3221'
                         type: boolean
+                      mergeSlashes:
+                        description: MergeSlashes toggles Envoy's non-standard merge_slashes
+                          path transformation option which strips duplicate slashes
+                          from request URL paths.
+                        type: boolean
                       tls:
                         description: TLS holds various configurable Envoy TLS listener
                           values.
@@ -301,6 +306,7 @@ spec:
                     required:
                     - connectionBalancer
                     - disableAllowChunkedLength
+                    - mergeSlashes
                     - tls
                     - useProxyProtocol
                     type: object
@@ -1178,6 +1184,11 @@ spec:
                               behavior in case of failures. Please file an issue if
                               failures are encountered. See: https://github.com/projectcontour/contour/issues/3221'
                             type: boolean
+                          mergeSlashes:
+                            description: MergeSlashes toggles Envoy's non-standard
+                              merge_slashes path transformation option which strips
+                              duplicate slashes from request URL paths.
+                            type: boolean
                           tls:
                             description: TLS holds various configurable Envoy TLS
                               listener values.
@@ -1228,6 +1239,7 @@ spec:
                         required:
                         - connectionBalancer
                         - disableAllowChunkedLength
+                        - mergeSlashes
                         - tls
                         - useProxyProtocol
                         type: object

@@ -57,6 +57,11 @@ data:
     # Disable RFC-compliant behavior to strip "Content-Length" header if
     # "Tranfer-Encoding: chunked" is also set.
     # disableAllowChunkedLength: false
+    #
+    # Disable Envoy's non-standard merge_slashes path transformation option
+    # that strips duplicate slashes from request URLs.
+    # mergeSlashes: false
+    #
     # Disable HTTPProxy permitInsecure field
     disablePermitInsecure: false
     tls:
@@ -444,6 +449,11 @@ spec:
                           revert back to Envoy''s default behavior in case of failures.
                           Please file an issue if failures are encountered. See: https://github.com/projectcontour/contour/issues/3221'
                         type: boolean
+                      mergeSlashes:
+                        description: MergeSlashes toggles Envoy's non-standard merge_slashes
+                          path transformation option which strips duplicate slashes
+                          from request URL paths.
+                        type: boolean
                       tls:
                         description: TLS holds various configurable Envoy TLS listener
                           values.
@@ -493,6 +503,7 @@ spec:
                     required:
                     - connectionBalancer
                     - disableAllowChunkedLength
+                    - mergeSlashes
                     - tls
                     - useProxyProtocol
                     type: object
@@ -1370,6 +1381,11 @@ spec:
                               behavior in case of failures. Please file an issue if
                               failures are encountered. See: https://github.com/projectcontour/contour/issues/3221'
                             type: boolean
+                          mergeSlashes:
+                            description: MergeSlashes toggles Envoy's non-standard
+                              merge_slashes path transformation option which strips
+                              duplicate slashes from request URL paths.
+                            type: boolean
                           tls:
                             description: TLS holds various configurable Envoy TLS
                               listener values.
@@ -1420,6 +1436,7 @@ spec:
                         required:
                         - connectionBalancer
                         - disableAllowChunkedLength
+                        - mergeSlashes
                         - tls
                         - useProxyProtocol
                         type: object
