@@ -462,6 +462,7 @@ func TestConfigFileDefaultOverrideImport(t *testing.T) {
 incluster: false
 disablePermitInsecure: false
 disableAllowChunkedLength: false
+disableMergeSlashes: false
 leaderelection:
   configmap-name: leader-elect
   configmap-namespace: projectcontour
